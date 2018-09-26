@@ -1,5 +1,6 @@
 # Anagram
 # nnayak
+# sep 25 2018
 
 path = '/Users/nnayak/Desktop/list.txt'
 
@@ -17,7 +18,7 @@ for i in range(len(list_file_s)):
 
 #print(list_re_words)
 
-
+# Compare the words in the same list
 for i in range(0,len(list_re_words)-1,1):
     for j in range(i+1,len(list_re_words)-1,1):
         if list_re_words[i] == list_re_words[j]:
@@ -25,6 +26,8 @@ for i in range(0,len(list_re_words)-1,1):
             anagram_words.append(list_file_s[i])
 
 print(anagram_words)
+
+# This is to remove the common words from the list 
 
 for i in range(0, len(anagram_words)-1,1):
     for j in range(i+1, len(anagram_words)-1,1):
