@@ -2,6 +2,8 @@
 # nnayak
 # sep 25 2018
 
+#ask the user for the file
+
 path = '/Users/nnayak/Desktop/list.txt'
 
 list_file = open(path,'r')
