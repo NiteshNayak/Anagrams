@@ -5,9 +5,6 @@
 #path = '/Users/nnayak/Desktop/list.txt'
 
 dict_sort_count = {}
-most_anagram = {}
-output_anagram = {}
-count = 0
 readFile = []
 sort_wordFile = []
 
@@ -27,9 +24,15 @@ def sort_count(self):
         sort_word = ''.join(sorted(sort_word))
         sort_wordFile.append(sort_word)
         if sort_wordFile[i] in dict_sort_count:
+            #del sort_wordFile[i]
             dict_sort_count[sort_wordFile[i]] += 1
         else:
             dict_sort_count[sort_wordFile[i]] = 1
+
+    for key in list(dict_sort_count.keys()):
+        if dict_sort_count[key] == 1:
+            del dict_sort_count[key]
+
     for w in sorted(dict_sort_count, key=dict_sort_count.get, reverse=True):
         print w, dict_sort_count[w]
 
@@ -40,8 +43,7 @@ readFile = read_file()
 print("")
 print("The File has words :")
 print(readFile)
-print len(readFile)
 
 print("")
-print("The most common Anagrams are: ")
+print("Most words are useds from the combination are: ")
 sortFile = sort_count(readFile)
