@@ -6,6 +6,7 @@
 
 dict_sort_count = {}
 most_anagram = {}
+output_anagram = {}
 count = 0
 readFile = []
 sort_wordFile = []
@@ -29,9 +30,8 @@ def sort_count(self):
             dict_sort_count[sort_wordFile[i]] += 1
         else:
             dict_sort_count[sort_wordFile[i]] = 1
-    print(dict_sort_count)
-   # most_anagram = dict(Counter(dict_sort_count))
-   # print (most_anagram)
+    for w in sorted(dict_sort_count, key=dict_sort_count.get, reverse=True):
+        print w, dict_sort_count[w]
 
 
 print("Enter the filename along with the path: ")
@@ -42,7 +42,6 @@ print("The File has words :")
 print(readFile)
 print len(readFile)
 
-sortFile = sort_count(readFile)
 print("")
-print("The sorted file is: ")
-#print(sortFile)
+print("The most common Anagrams are: ")
+sortFile = sort_count(readFile)
