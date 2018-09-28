@@ -1,34 +1,48 @@
-# Anagram
+# Optimized Anagram
 # nnayak
+# Sep 27 2018
 
-path = '/Users/nnayak/Desktop/list.txt'
+#path = '/Users/nnayak/Desktop/list.txt'
 
-list_file = open(path,'r')
-list_file_s = list_file.readlines()
-print(list_file_s)
-list_re_words = []
-anagram_words = []
+dict_sort_count = {}
+most_anagram = {}
+count = 0
+readFile = []
+sort_wordFile = []
 
-for i in range(len(list_file_s)):
-    each_word = list_file_s[i]
-    rearrange_word = ''.join(sorted(each_word))
-    #print(rearrange_word)
-    list_re_words.append(rearrange_word)
+from collections import Counter
 
-#print(list_re_words)
+def read_file():
+    path = raw_input()
+    openFile = open(path,'r')
+    rdFile = openFile.readlines()
+    rdFile_clean = [x.replace('\n','') for x in rdFile]
+    return rdFile_clean
+
+def sort_count(self):
+    for i in range(0, len(readFile), 1):
+        sort_word = readFile[i]
+        sort_word = sort_word.lower()
+        sort_word = ''.join(sorted(sort_word))
+        sort_wordFile.append(sort_word)
+        if sort_wordFile[i] in dict_sort_count:
+            dict_sort_count[sort_wordFile[i]] += 1
+        else:
+            dict_sort_count[sort_wordFile[i]] = 1
+    print(dict_sort_count)
+   # most_anagram = dict(Counter(dict_sort_count))
+   # print (most_anagram)
 
 
-for i in range(0,len(list_re_words)-1,1):
-    for j in range(i+1,len(list_re_words)-1,1):
-        if list_re_words[i] == list_re_words[j]:
-            #print(list_re_words[i])
-            anagram_words.append(list_file_s[i])
+print("Enter the filename along with the path: ")
 
-print(anagram_words)
+readFile = read_file()
+print("")
+print("The File has words :")
+print(readFile)
+print len(readFile)
 
-for i in range(0, len(anagram_words)-1,1):
-    for j in range(i+1, len(anagram_words)-1,1):
-        if anagram_words[i] == anagram_words[j]:
-            del anagram_words[i]
-
-print(anagram_words)
+sortFile = sort_count(readFile)
+print("")
+print("The sorted file is: ")
+#print(sortFile)
